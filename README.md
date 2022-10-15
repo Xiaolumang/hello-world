@@ -1,3 +1,4 @@
 # hello-world
 My first repo
-Teddy Bear
+writing a cover letter
+applying a job 
