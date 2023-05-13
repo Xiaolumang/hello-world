@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+  
+    stages {
+        stage('Build') {
+            steps {
+                // Run build commands or scripts here
+                echo 'building'
+            }
+ post {
+        always {
+            // Send email notification on pipeline success
+            emailext(
+                subject: "Build Status email",
+                body: "Build log attached",
+                to: "xiaolumangoncloudnine@gmail.com"
+            )
+        }
+      
+        
+    }
+        }
+      
+        stage('Test') {
+            steps {
+                // Run test commands or scripts here
+                echo 'testing'
+            }
+        }
+      
+        stage('Deploy') {
+            steps {
+                // Run deployment commands or scripts here
+                echo 'deploying'
+            }
+        }
+    }
+  
+   
+}
