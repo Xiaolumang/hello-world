@@ -2,7 +2,7 @@ pipeline {
     agent any
     
      environment {
-        PATH = "C:\\Users\\xiaol\\.jenkins\\plugins\\maven-plugin\\WEB-INF:${env.PATH}"
+        PATH = "D:\Chrome_downloads\apache-maven-3.9.2\bin:${env.PATH}"
     }
 
   
