@@ -4,42 +4,76 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Run build commands or scripts here
-                echo 'building'
+                // Use Maven as the build automation tool
+                sh 'mvn clean package'
             }
- post {
-        success {
-            // Send email notification on pipeline success
-                mail to: "xiaolumangoncloudnine@gmail.com", 
-                subject: "Build Status email",
-                body: "Build log attached"
-           
-            
         }
       
-        
-    }
-        }
-      
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                // Run test commands or scripts here
-                echo 'testing'
+                // Use JUnit for unit tests
+                sh 'mvn test'
+                
+                // Use a tool like Selenium or Postman for integration tests
+                // Add the necessary commands or scripts to run integration tests
             }
         }
       
-        stage('Deploy') {
+        stage('Code Analysis') {
             steps {
-                // Run deployment commands or scripts here
-                echo 'deploying'
+                // Use SonarQube for code analysis
+                // Set up SonarQube configuration and execute the analysis
             }
         }
-        stage('Completed'){
-        steps {
-        echo 'completing '
+      
+        stage('Security Scan') {
+            steps {
+                // Use a security scanning tool like OWASP ZAP or SonarQube
+                // Set up the security scanning configuration and run the scan
+            }
         }
+      
+        stage('Deploy to Staging') {
+            steps {
+                // Use a deployment tool like AWS CodeDeploy or Jenkins' built-in deployment features
+                // Set up the deployment configuration to deploy to the staging environment
+            }
+        }
+      
+        stage('Integration Tests on Staging') {
+            steps {
+                // Run integration tests on the staging environment
+                // Use a testing framework or tool to perform the tests
+            }
+        }
+      
+        stage('Deploy to Production') {
+            steps {
+                // Use the same deployment tool as used for staging
+                // Configure the deployment to target the production environment
+            }
         }
     }
   
-   
+    post {
+        success {
+            // Send email notification on pipeline success
+                
+                mail to: "Xiaolumangoncloudnine@gmail.com",
+                subject: "Pipeline Status: Success",
+                body: "The pipeline has been successfully executed.",
+                attachmentsPattern: "**/*"
+            
+        }
+      
+        failure {
+            // Send email notification on pipeline failure
+                mail to: "Xiaolumangoncloudnine@gmail.com",
+                subject: "Pipeline Status: Failure",
+                body: "The pipeline has failed. Please check the logs for more details.",
+  
+                attachmentsPattern: "**/*"
+            
+        }
+    }
 }
