@@ -1,5 +1,10 @@
 pipeline {
     agent any
+    
+     environment {
+        PATH = "C:\Users\xiaol\.jenkins\plugins\maven-plugin\WEB-INF:${env.PATH}"
+    }
+
   
     stages {
         stage('Build') {
