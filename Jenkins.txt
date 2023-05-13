@@ -36,7 +36,7 @@ pipeline {
         }
         state('Completed'){
         steps {
-        echo 'completing'
+        echo 'completing '
         }
         }
     }
