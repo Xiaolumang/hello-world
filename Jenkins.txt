@@ -34,7 +34,7 @@ pipeline {
                 echo 'deploying'
             }
         }
-        state('Completed'){
+        stage('Completed'){
         steps {
         echo 'completing '
         }
