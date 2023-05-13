@@ -28,8 +28,8 @@ pipeline {
                 
                 mail to: "Xiaolumangoncloudnine@gmail.com",
                 subject: "Pipeline Status: Success",
-                body: "The pipeline has been successfully executed.",
-                attachmentsPattern: "**/*"
+                body: "The pipeline has been successfully executed."
+         
             
         }
       
@@ -37,9 +37,8 @@ pipeline {
             // Send email notification on pipeline failure
                 mail to: "Xiaolumangoncloudnine@gmail.com",
                 subject: "Pipeline Status: Failure",
-                body: "The pipeline has failed. Please check the logs for more details.",
+                body: "The pipeline has failed. Please check the logs for more details."
   
-                attachmentsPattern: "**/*"
             
         }
     }
