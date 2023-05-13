@@ -10,10 +10,10 @@ pipeline {
  post {
         success {
             // Send email notification on pipeline success
-            
+                mail to: "xiaolumangoncloudnine@gmail.com", 
                 subject: "Build Status email",
-                body: "Build log attached",
-                mail to: "xiaolumangoncloudnine@gmail.com"
+                body: "Build log attached"
+           
             
         }
       
