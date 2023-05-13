@@ -19,40 +19,7 @@ pipeline {
             }
         }
       
-        stage('Code Analysis') {
-            steps {
-                // Use SonarQube for code analysis
-                // Set up SonarQube configuration and execute the analysis
-            }
-        }
-      
-        stage('Security Scan') {
-            steps {
-                // Use a security scanning tool like OWASP ZAP or SonarQube
-                // Set up the security scanning configuration and run the scan
-            }
-        }
-      
-        stage('Deploy to Staging') {
-            steps {
-                // Use a deployment tool like AWS CodeDeploy or Jenkins' built-in deployment features
-                // Set up the deployment configuration to deploy to the staging environment
-            }
-        }
-      
-        stage('Integration Tests on Staging') {
-            steps {
-                // Run integration tests on the staging environment
-                // Use a testing framework or tool to perform the tests
-            }
-        }
-      
-        stage('Deploy to Production') {
-            steps {
-                // Use the same deployment tool as used for staging
-                // Configure the deployment to target the production environment
-            }
-        }
+       
     }
   
     post {
