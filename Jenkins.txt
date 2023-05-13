@@ -8,13 +8,13 @@ pipeline {
                 echo 'building'
             }
  post {
-        always {
+        success {
             // Send email notification on pipeline success
-            emailext(
+            
                 subject: "Build Status email",
                 body: "Build log attached",
-                to: "xiaolumangoncloudnine@gmail.com"
-            )
+                mail to: "xiaolumangoncloudnine@gmail.com"
+            
         }
       
         
